@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-color: whitesmoke;
+    min-height: 100vh;
+}
+h1{
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+.list-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+table, tr, td{
+    border: 1px solid black;
+}
+
+d-none{
+    display: none;
+}
+
+.website{
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+.detailcontainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}   
+.card-container{
+    background-color: azure;
+    border: 1px solid red;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    width: 200px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    align-self: center;
+}

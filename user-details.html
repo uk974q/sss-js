@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="detailcontainer">
+            <h1> Details </h1>
+            <div class="card-container" data-card-container>
+                <template data-card>
+                    <div class="card">
+                        <h1 data-title></h1>
+                        <h3 data-email></h3>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <script>
+            let cardContainer = document.querySelector("[data-card-container]")
+            let cardTemplate = document.querySelector("[data-card]")
+            let id = localStorage.getItem("userId")
+            const url = `https://jsonplaceholder.typicode.com/users/${id}`
+            fetch(url).then(res => res.json()).then(data =>{
+                let node = cardTemplate.content.cloneNode(true).children[0]
+                let title = node.querySelector("[data-title]")
+                let email = node.querySelector("[data-email]")
+                console.log(data)
+                title.textContent = "Name : " +data.name
+                email.textContent = "Email : "+data.email
+                cardContainer.append(node)
+            })
+        </script>
+    </body>
+</html>

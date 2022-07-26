@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1> Summary </h1>
+            <div class="list-container">
+                <table>
+                    <thead class="table-head d-none">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Address Street</th>
+                            <th>Phone</th>
+                            <th>Website</th>
+                        </tr>
+                    </thead>
+                    <tbody data-table-body>
+                        <template data-row>
+                            <tr >
+                                <td data-id class="key"></td>
+                                <td data-name></td>
+                                <td data-email></td>
+                                <td data-address></td>
+                                <td data-phone></td>
+                                <td data-website class="website"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <script src="users.js"></script>
+    </body>
+</html>
