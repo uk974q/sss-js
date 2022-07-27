@@ -8,8 +8,8 @@
             <div class="card-container" data-card-container>
                 <template data-card>
                     <div class="card">
-                        <h1 data-title></h1>
-                        <h3 data-email></h3>
+                        <label data-title></label>
+                        <div data-value></div>
                     </div>
                 </template>
             </div>
@@ -20,14 +20,33 @@
             let id = localStorage.getItem("userId")
             const url = `https://jsonplaceholder.typicode.com/users/${id}`
             fetch(url).then(res => res.json()).then(data =>{
-                let node = cardTemplate.content.cloneNode(true).children[0]
-                let title = node.querySelector("[data-title]")
-                let email = node.querySelector("[data-email]")
-                console.log(data)
-                title.textContent = "Name : " +data.name
-                email.textContent = "Email : "+data.email
-                cardContainer.append(node)
+
+                let modifiedData = {}
+                modifiedData = flattenObj(data,modifiedData)
+                Object.keys(modifiedData).forEach(el => {
+                    let node = cardTemplate.content.cloneNode(true).children[0]
+                    let title = node.querySelector("[data-title]")
+                    let value = node.querySelector("[data-value]")
+                    // console.log(data)
+                    title.textContent = el
+                    value.textContent = modifiedData[el]
+                    cardContainer.append(node)
+                })
             })
+
+            function flattenObj(data, obj){
+
+                let keys = Object.keys(data)
+                keys.forEach(el => {
+                    if(typeof data[el] === 'object'){
+                        flattenObj(data[el],obj)
+                    }else{
+                        obj[el] = data[el]
+                    }
+                })
+                return obj
+
+            }
         </script>
     </body>
 </html>

@@ -27,14 +27,17 @@ fetch(URL)
     })
 
 document.querySelector("tbody[data-table-body]").addEventListener("click",function(el){
+    let parentNode = el.target.parentNode
+    let rowId = parentNode.querySelector("[data-id]").textContent
+    // console.log("Row",rowId)
     let key = Object.keys(el.target.dataset)[0]
     if(key === 'website'){
         let link = el.target.textContent
-        console.log(link)
+        // console.log(link)
         window.open("https://"+link,"_blank")
     }else{
-        console.log("El",el)
-        localStorage.setItem("userId",1)
-        // window.open("user-details.html","_blank")
+        // console.log("El",el)
+        localStorage.setItem("userId",rowId)
+        window.open("user-details.html","_blank")
     }
 })

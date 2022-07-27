@@ -1,9 +1,10 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: lightgoldenrodyellow
 }
 .container{
-    background-color: whitesmoke;
+    
     min-height: 100vh;
 }
 h1{
@@ -16,10 +17,23 @@ h1{
     align-items: center;
     justify-content: center;
 }
-table, tr, td{
+table, th, td{
     border: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+    padding: 10px;
+}
+td{
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
 }
 
+td:hover{
+    background-color: blue;
+    color: whitesmoke;
+}
 d-none{
     display: none;
 }
@@ -36,14 +50,33 @@ d-none{
     flex-direction: column;
 }   
 .card-container{
-    background-color: azure;
-    border: 1px solid red;
+    background-color: whitesmoke;
+    border: 1px solid black;
     border-radius: 5px;
-    text-align: center;
-    font-size: 14px;
-    width: 200px;
+    /* text-align: center; */
+    font-size: 18px;
+    width: 60%;
     display: flex;
     align-items:center;
     justify-content: center;
     align-self: center;
+    flex-direction: column;
+}
+.card{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    width: 60%;
+    padding: 10px;
+    
+}
+.card label{
+    font-weight: bold;
+    text-transform: capitalize;
+    /* text-align: left; */
+}
+.card div{
+    /* align-self: flex-start; */
+    text-align: right;
+    /* font-size: 16px; */
 }
